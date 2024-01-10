@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/icon.png" type="image/x-icon">
+    <title>Maintainer Login</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(255, 40, 79, 0.651), rgba(16, 61, 183, 0.61)), url(https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/maxresdefault.jpg);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            margin: 0;
+            height: 100vh;
+        }
+
+        .navbar {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: #f5f3f3;
+            top: 0;
+            left: 0;
+            width: 100%;
+            position: fixed;
+            align-items: center;
+            z-index: 99;
+            height: 90px;
+            border-bottom: 2px solid rgba(11, 0, 39, 0.068);
+        }
+
+        .navbar .nav-link {
+            top: 20px;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b21718;
+            text-decoration: none;
+            position: relative;
+            float: right;
+            right: 10%;
+        }
+
+        .navbar .nav-link:hover {
+            color: #ffc107;
+        }
+
+        #home {
+            min-height: 95vh;
+            display: flex;
+            align-items: flex-end;
+            margin-left: 75px;
+            font-size: medium;
+        }
+
+        div.logo-container {
+            margin-top: 5vh;
+        }
+
+        #home h1 {
+            font-weight: 700;
+            font-size: 3em;
+            color: #ccc
+        }
+
+        #home p {
+            max-width: 550px;
+            margin: 18px auto;
+            color: #ccc;
+            font-size: 1.2em;
+        }
+
+        span {
+            color: #f89b31;
+            font-size: 1.5em;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 30vh;
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+
+        .login-container {
+            background-color: #f5f3f3;
+            text-align: center;
+            margin-top: auto;
+            padding: 55px 100px;
+            width: 330px;
+            position: fixed;
+            height: 100%;
+            box-shadow: 0px 0px 10px rgba(216, 11, 11, 0.5);
+            right: 0;
+        }
+
+        .logo-container img {
+            width: 90%;
+            border-radius: 50%;
+            margin-top: 100px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            margin-top: 70px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 8px;
+
+        }
+
+        .form-group button {
+            width: 50%;
+            height: 45px;
+            padding: 5px;
+            border: none;
+            background-color: #f89b31;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .form-group button:hover {
+            background-color: #9c5d15;
+        }
+
+        .forgot-password {
+            color: #EBA814;
+        }
+
+
+
+        @media only screen and (max-width: 600px) {
+            .login-container {
+                padding: 0px 20px;
+            }
+
+            .logo-container img {
+                width: 90%;
+                border-radius: 50%;
+                margin-top: 90px;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            .login-container {
+                padding: 0px 20px;
+            }
+
+            div.logo-container {
+                margin-top: -8vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <body data-bs-spy="scroll" data-bs-target=".navbar">
+        <nav class="navbar navbar-inverse">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <a class="nav-link" href="#home">Home</a>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="login-container">
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/ISKONNECT%20(1).png" alt="Logo">
+            </div>
+            <h2></h2>
+            <form action="process-login.php" method="post">
+                <!-- Use the appropriate action URL -->
+                <div class="form-group">
+                    <input type="text" placeholder="Email" id="fname" name="fname">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+
+            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 1vh;">
+                <a class="forgot-password" href="#">Forgot Password?</a>
+            </div>
+        </div>
+
+        <section id="home">
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <h1 class="text-white display-4"><span>Tanauan City <br></span> Scholarship Program</h1>
+                        <p class="text-white">"Education is the key that unlocks the doors of opportunity, and
+                            scholarships are
+                            the catalyst that ignites the flames of brilliance."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+
+</html>

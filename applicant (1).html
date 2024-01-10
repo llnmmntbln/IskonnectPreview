@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Application Form</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/icon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background: #0c3542;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e4e4e4;
+            border-radius: 2em;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #EBA814;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            margin-top: 10vh;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background: #f5f3f3;
+            top: 0;
+            left: 0;
+            position: fixed;
+            align-items: center;
+            z-index: 99;
+            height: 90px;
+            border: none;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar .logo-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar .nav-links {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-inverse .navbar-nav>li>a {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #E42A2A;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        input[type=file] {
+            display: block;
+            width: 35%;
+        }
+
+        .navbar-inverse .navbar-nav>li>a:hover {
+            color: #EBA814;
+        }
+
+        .navbar img {
+            width: 120px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input,
+        select,
+        textarea {
+            border-radius: 9px;
+            height: 40px;
+            background-color: #E9E9E4;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-width: 2px;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 10px;
+        }
+
+        .application-requirement {
+            background: linear-gradient(50deg, rgb(230 13 13 / 92%) 5%, rgb(12 53 66 / 98%) 100%);
+            color: white;
+            border-radius: 10px;
+            font-size: 14px;
+            margin-top: 20px;
+            padding: 35px 60px;
+        }
+
+        ::file-selector-button {
+            display: none;
+        }
+
+        .attach-file {
+            overflow: hidden;
+            background-color: #E9E9E4;
+            color: #0C3542;
+            text-align-last: center;
+            padding-top: 10px;
+            cursor: pointer;
+        }
+
+        .status {
+            color: #EBA814;
+        }
+
+        .sbmt {
+            margin-top: 30px;
+            text-align: center;
+            margin-bottom: 3vh;
+        }
+
+        .btn-sbmt {
+            color: #fff;
+            background-color: #EBA814;
+            border: #EBA814;
+            width: 135px;
+            height: 40px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        td,
+        th {
+            padding: 5px;
+            text-align: left;
+        }
+
+        th {
+            color: white;
+        }
+
+        .yellow-text {
+            color: #EBA814;
+        }
+
+        .modal-body {
+            text-align: center;
+        }
+
+        @media screen and (max-width: 767px) {
+            body {
+                width: auto;
+                font-size: 14px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="date"],
+            input[type="number"],
+            select {
+                width: 100%;
+                font-size: 12px;
+            }
+
+            input[type="file"] {
+                height: 32px;
+                width: 100%;
+                font-size: 10px;
+            }
+
+            .site-wrap {
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+
+            .container {
+                padding-top: 0;
+                margin-top: 0;
+            }
+
+            .btn-sbmt {
+                height: 30px;
+                font-size: 14px;
+            }
+
+            .yellow-text {
+                font-size: 14px;
+            }
+
+            .status {
+                font-size: 12px;
+            }
+
+            .application-requirement {
+                margin: 0;
+                padding: 0;
+            }
+
+            h3 {
+                font-size: 14px;
+            }
+
+            th,
+            td {
+                padding: 3px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h4 {
+                font-size: 12px;
+            }
+
+            label {
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (max-width: 390px) {
+            .navbar .nav-links {
+                left: 35px;
+                position: relative;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <nav class="navbar navbar-inverse">
+        <div class="logo-image">
+            <img src="https://raw.githubusercontent.com/llnmmntbln/T-Iskonnect/main/ISKONNECT%20(1).png"
+                class="img-fluid">
+        </div>
+        <div class="nav-links">
+            <ul class="navbar-nav ms-auto" style="list-style-type: none;">
+                <li><a class="nav-link" href="index.php">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" style="margin-top: 20px;">
+            <h1><b>Personal</b> Information</h1>
+            <form class="col-xs-12" method="POST" enctype="multipart/form-data">
+                <div class="col-xs-6 col-sm-4">
+                    <label for="fname">First Name:</label> <br>
+                    <input type="text" id="fname" name="fname" required>
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <label for="lname">Last Name:</label> <br>
+                    <input type="text" id="lname" name="lname" required>
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <label for="gender">Gender:</label> <br>
+                    <select name="gender" id="gender" required>
+                        <option value="">Select Here:</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-xs-4 col-sm-4">
+                    <label for="birthdate">Date of Birth:</label> <br>
+                    <input type="date" name="birthdate" id="birthdate" required>
+                </div>
+                <div class="col-xs-4 col-sm-4">
+                    <label for="age">Age:</label> <br>
+                    <input type="number" name="age" id="age" required>
+                </div>
+                <div class="col-xs-4 col-sm-4">
+                    <label for="year_level">Year - Level:</label> <br>
+                    <select name="year_level" id="year_level" required>
+                        <option value="">Select Here:</option>
+                        <option value="First Year College">First Year College</option>
+                        <option value="Second Year College">Second Year College</option>
+                        <option value="Third Year College">Third Year College</option>
+                        <option value="Fourth Year College">Fourth Year College</option>
+                        <option value="Grade 12 (Highschool)">Grade 12 (Highschool)</option>
+                        <option value="Grade 11 (Highschool)">Grade 11 (Highschool)</option>
+                        <option value="Grade 10 (Highschool)">Grade 10 (Highschool)</option>
+                        <option value="Grade 9  (Highschool)">Grade 9 (Highschool)</option>
+                        <option value="Grade 8  (Highschool)">Grade 8 (Highschool)</option>
+                        <option value="Grade 7  (Highschool)">Grade 7 (Highschool)</option>
+                        <option value="Grade 6">Grade 6</option>
+                        <option value="Grade 5">Grade 5</option>
+                        <option value="Grade 4">Grade 4</option>
+                        <option value="Grade 3">Grade 3</option>
+                        <option value="Grade 2">Grade 2</option>
+                        <option value="Grade 1">Grade 1</option>
+                    </select>
+                </div>
+                <div class="col-xs-6 col-sm-6">
+                    <label for="email">Email:</label> <br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class=" col-xs-6 col-sm-6">
+                    <label for="school_id_number">School ID Number:</label> <br>
+                    <input type="text" id="school_id_number" name="school_id_number" required>
+                </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h1><b>Contact</b> Information</h1>
+            <div class="col-sm-6 col-xs-12">
+                <label for="contact_number">Contact Number:</label> <br>
+                <input type="text" id="contact_number" name="contact_number" placeholder="+639123456789 or 09123456789"
+                    required>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <label for="family_profile_number">Family Profile No:</label> <br>
+                <input type="text" id="family_profile_number" name="family_profile_number" required>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <label for="country">Country:</label> <br>
+                <select name="country" id="country" required>
+                    <option value="">Select Country:</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <label for="region">Region:</label> <br>
+                <select name="region" id="region" required>
+                    <option value="">Select Region:</option>
+                    <option value="Calabarzon (IV-A)">Region IV-A (Calabarzon)</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <label for="province">Province:</label> <br>
+                <select name="province" id="province" required>
+                    <option value="">Select Province:</option>
+                    <option value="Batangas">Batangas</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <label for="city">City/Municipality:</label> <br>
+                <select name="city" id="city" required>
+                    <option value="">Select Municipality:</option>
+                    <option value="Tanauan">Tanauan</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-sm-4 col-xs-12">
+                <label for="barangay">Barangay:</label> <br>
+                <select name="barangay" id="barangay" required>
+                    <option value="">Select Barangay:</option>
+                    <option value="Altura Bata">Altura Bata</option>
+                    <option value="Altura Matanda">Altura Matanda</option>
+                    <option value="Altura-South">Altura-South</option>
+                    <option value="Ambulong">Ambulong</option>
+                    <option value="Bañadero">Bañadero</option>
+                    <option value="Bagbag">Bagbag</option>
+                    <option value="Bagumbayan">Bagumbayan</option>
+                    <option value="Balele">Balele</option>
+                    <option value="Banjo East (Bungkalot)">Banjo East (Bungkalot)</option>
+                    <option value="Banjo West (Banjo Laurel)">Banjo West (Banjo Laurel)</option>
+                    <option value="Bilog-bilog">Bilog-bilog</option>
+                    <option value="Boot">Boot</option>
+                    <option value="Cale">Cale</option>
+                    <option value="Darasa">Darasa</option>
+                    <option value="Gonzales">Gonzales</option>
+                    <option value="Hidalgo">Hidalgo</option>
+                    <option value="Janopol">Janopol</option>
+                    <option value="Janopol Oriental">Janopol Oriental</option>
+                    <option value="Laurel">Laurel</option>
+                    <option value="Luyos">Luyos</option>
+                    <option value="Mabini">Mabini</option>
+                    <option value="Malaking Pulo">Malaking Pulo</option>
+                    <option value="Maria Paz">Maria Paz</option>
+                    <option value="Maugat">Maugat</option>
+                    <option value="Montaña (Ik-ik)">Montaña (Ik-ik)</option>
+                    <option value="Natatas">Natatas</option>
+                    <option value="Pagaspas (Balokbalok)">Pagaspas (Balokbalok)</option>
+                    <option value="Pantay Matanda">Pantay Matanda</option>
+                    <option value="Pantay Bata">Pantay Bata</option>
+                    <option value="Poblacion Barangay 1">Poblacion Barangay 1</option>
+                    <option value="Poblacion Barangay 2">Poblacion Barangay 2</option>
+                    <option value="Poblacion Barangay 3">Poblacion Barangay 3</option>
+                    <option value="Poblacion Barangay 4">Poblacion Barangay 4</option>
+                    <option value="Poblacion Barangay 5">Poblacion Barangay 5</option>
+                    <option value="Poblacion Barangay 6">Poblacion Barangay 6</option>
+                    <option value="Poblacion Barangay 7">Poblacion Barangay 7</option>
+                    <option value="Sala">Sala</option>
+                    <option value="Sambat">Sambat</option>
+                    <option value="San Jose">San Jose</option>
+                    <option value="Santol (Doña Jacoba Garcia)">Santol (Doña Jacoba Garcia)</option>
+                    <option value="Santor">Santor</option>
+                    <option value="Sulpoc">Sulpoc</option>
+                    <option value="Suplang">Suplang</option>
+                    <option value="Talaga">Talaga</option>
+                    <option value="Tinurik">Tinurik</option>
+                    <option value="Trapiche">Trapiche</option>
+                    <option value="Ulango">Ulango</option>
+                    <option value="Wawa">Wawa</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <h1><b>Applicant</b> Scholarship Requirements</h1>
+    <div class="container application-requirement">
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="">
+                    <tr>
+                        <th>
+                            <h3 class="yellow-text">Applicant Requirements</h3>
+                        </th>
+                        <th>
+                            <h3>Action</h3>
+                        </th>
+                        <th>
+                            <h3>Status</h3>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td><label for="family_profile_form">
+                                <h4>Family Profile Form</h4>
+                            </label></td>
+                        <td><input type="file" class="attach-file" id="family_profile_form" name="family_profile_form"
+                                required></td>
+                        <td>
+                            <h4 class="status">Pending</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="educational_assistance_form">
+                                <h4>Educational Assistance Form</h4>
+                            </label></td>
+                        <td><input type="file" class="attach-file" id="educational_assistance_form"
+                                name="educational_assistance_form" required></td>
+                        <td>
+                            <h4 class="status">Pending</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="certified_true_copy_previous_grades">
+                                <h4>Certified True Copy of Previous Grades</h4>
+                            </label></td>
+                        <td><input type="file" class="attach-file" id="certified_true_copy_previous_grades"
+                                name="certified_true_copy_previous_grades" required></td>
+                        <td>
+                            <h4 class="status">Pending</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="school_registration">
+                                <h4>School Registration</h4>
+                            </label></td>
+                        <td><input type="file" class="attach-file" id="school_registration" name="school_registration"
+                                required></td>
+                        <td>
+                            <h4 class="status">Pending</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="certificate_good_moral">
+                                <h4>Certificate of Good Moral</h4>
+                            </label></td>
+                        <td><input type="file" class="attach-file" id="certificate_good_moral"
+                                name="certificate_good_moral" required></td>
+                        <td>
+                            <h4 class="status">Pending</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="certificate_residency">
+                                <h4>Certificate of Residency</h4>
+                            </label></td>
+                        <td><input type="file" class="attach-file" id="certificate_residency"
+                                name="certificate_residency" required></td>
+                        <td>
+                            <h4 class="status">Pending</h4>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="sbmt">
+        <button type="submit" class="btn-sbmt" onclick="return validateForm()">Apply</button>
+    </div>
+
+
+</body>
+
+</html>
